@@ -6,7 +6,7 @@ import Grid from './components/Grid/Grid'
 function App() {
 
   return (
-    <main>
+    <main className='py-[20px]'>
       <Header />
       <ExtensionList />
       <Grid />
