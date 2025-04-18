@@ -8,7 +8,7 @@ function Grid() {
     const activeItems = dataJson.filter((item) => item.isActive);
     setData(activeItems);
   };
-  
+
   const filterDataInactive = () => {
     const activeItems = dataJson.filter((item) => !item.isActive);
     setData(activeItems);
@@ -16,6 +16,10 @@ function Grid() {
 
   const resetFilter = () => setData(dataJson);
 
+  const removeItem = (index) => {
+    const updatedItems = data.filter((item) => item.name != index);
+    setData(updatedItems)
+  }
   return (
     <>
       <section className="max-w-[1170px] mx-auto flex justify-between">
@@ -42,7 +46,7 @@ function Grid() {
                 </div>
               </div>
               <div className="flex">
-                <button>remove</button>
+                <button onClick={() => {removeItem(item.name)}}>remove</button>
                 <div>button</div>
               </div>
             </div>
