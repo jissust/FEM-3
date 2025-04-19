@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Logo } from "../Icons/Icons";
 import { IconMoon, IconSun } from "../Icons/Icons";
 
 function Header() {
   const [themeDark, setThemeDark] = useState(false)
+  useEffect(() => {
+    if (themeDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [themeDark]);
+
   const changeTheme = () => {
     setThemeDark(!themeDark)
   }
