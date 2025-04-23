@@ -17,9 +17,9 @@ function Header() {
   }
   return (
     <nav>
-      <div className="max-w-[1170px] mx-auto flex justify-between items-center bg-white dark:bg-black p-[15px] rounded-3xl">
+      <div className="max-w-[1170px] mx-auto flex justify-between items-center bg-white dark:bg-black px-[15px] py-[11px] rounded-3xl shadow-sm">
       { themeDark ?  <LogoDark /> : <Logo /> }
-        <button onClick={changeTheme} className="bg-gray-200 p-2 rounded-xl">
+        <button onClick={changeTheme} className="bg-gray-200 p-[14px] rounded-xl">
           { themeDark ?  <IconSun /> : <IconMoon /> }
         </button>
       </div>

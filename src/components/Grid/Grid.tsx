@@ -46,52 +46,52 @@ function Grid() {
 
   return (
     <>
-      <section className="max-w-[1170px] mx-auto flex justify-between py-5">
-        <div>
-          <h1 className="text-[#09153e] text-2xl font-bold">Extensions List</h1>
-        </div>
-        <div className="flex gap-[10px]">
+      <section className="max-w-[1170px] mx-auto flex justify-between py-5 mt-[45px]">
+        <h1 className="text-[#09153e] text-2xl text-[32px] font-bold mt-[3px] ">
+          Extensions List
+        </h1>
+        <div className="flex gap-[14px]">
           <button
-            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e]"
+            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] text-[19px]"
             onClick={resetFilter}
           >
             All
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e]"
+            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] text-[19px]"
             onClick={filterDataIsActive}
           >
             Active
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e]"
+            className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] text-[19px]"
             onClick={filterDataInactive}
           >
             Inactive
           </button>
         </div>
       </section>
-      <section className="max-w-[1170px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
+      <section className="max-w-[1170px] mx-auto mt-[11px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15px] ">
           {dataFilter.map((item) => (
             <div
               key={item.name}
-              className="bg-white dark:bg-black p-4 shadow-sm rounded-2xl flex flex-col h-full"
+              className="bg-white dark:bg-black p-[20px] shadow-sm rounded-2xl flex flex-col justify-between h-full min-h-[199px]"
             >
-              <div className="flex mb-[50px]">
+              <div className="flex">
                 <div className="w-full max-w-[60px]">
                   <img src={item.logo} alt={item.name} />
                 </div>
                 <div className="px-4">
-                  <div className="text-[#09153e] text-lg font-bold">
+                  <div className="text-[#09153e] text-lg font-bold text-[19px]">
                     {item.name}
                   </div>
-                  <div>{item.description}</div>
+                  <div className="text-[15px] leading-[22px]">{item.description}</div>
                 </div>
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className="shadow-sm py-2 px-5 bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e]"
+                  className="shadow-sm py-2 px-[19px] bg-white focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] text-[14px]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
@@ -100,14 +100,14 @@ function Grid() {
                 </button>
                 <div>
                   <div
-                    className={`w-12 h-6 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+                    className={`w-[35px] h-[20px] mt-[2px] flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                       item.isActive ? "bg-red-500" : "bg-gray-400"
                     }`}
                     onClick={() => changeState(item.name)}
                   >
                     <div
                       className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ${
-                        item.isActive ? "translate-x-6" : "translate-x-0"
+                        item.isActive ? "translate-x-[12px]" : "translate-x-0"
                       }`}
                     ></div>
                   </div>

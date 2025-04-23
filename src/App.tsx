@@ -5,7 +5,7 @@ import Grid from './components/Grid/Grid'
 function App() {
 
   return (
-    <main className='py-[20px]'>
+    <main className='py-[42px]'>
       <Header />
       <Grid />
     </main>
