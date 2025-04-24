@@ -9,10 +9,13 @@
   }
 
 body {
-    background-color: #eef8fa;
+    /*background-color: #eef8fa;*/
     font-family: 'NotoSans';
     color:#545969;
     font-size: 14px;
+}
+.bg-check {
+  background-color: #f45c51;
 }
 /*
 color de texto para título
