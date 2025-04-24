@@ -6,10 +6,11 @@ const LOCAL_STORAGE_KEY = "extensionsData";
 function Grid() {
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return dataJson;
+    return savedData ? JSON.parse(savedData) : dataJson;
   });
 
   const [dataFilter, setDataFilter] = useState(data);
+  const [active, setActive] = useState("all");
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
@@ -18,16 +19,19 @@ function Grid() {
   const filterDataIsActive = () => {
     const activeItems = data.filter((item) => item.isActive);
     setDataFilter(activeItems);
+    setActive("active")
   };
 
   const filterDataInactive = () => {
     const activeItems = data.filter((item) => !item.isActive);
     setDataFilter(activeItems);
+    setActive("inactive")
   };
 
   const resetFilter = () => {
     setData(data);
     setDataFilter(data);
+    setActive("all")
   };
 
   const removeItem = (index: string) => {
@@ -52,19 +56,22 @@ function Grid() {
         </h1>
         <div className="flex gap-[14px]">
           <button
-            className="shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
+            className={`shadow-sm py-2 px-5 dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+              ${ active === 'all' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={resetFilter}
           >
-            All
+            All 
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
+            className={`shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+              ${ active === 'active' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={filterDataIsActive}
           >
             Active
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
+            className={`shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+              ${ active === 'inactive' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={filterDataInactive}
           >
             Inactive
@@ -93,7 +100,7 @@ function Grid() {
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className="shadow-sm py-2 px-[19px] focus:bg-red-700 focus:text-white rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535]"
+                  className="shadow-sm py-2 px-[19px] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-2 border-transparent dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] hover:bg-[#525868]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
