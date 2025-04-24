@@ -52,19 +52,19 @@ function Grid() {
         </h1>
         <div className="flex gap-[14px]">
           <button
-            className="shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] dark:border-[2px] dark:border-[#3f455b]"
+            className="shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
             onClick={resetFilter}
           >
             All
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] dark:border-[2px] dark:border-[#3f455b]"
+            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
             onClick={filterDataIsActive}
           >
             Active
           </button>
           <button
-            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] dark:border-[2px] dark:border-[#3f455b]"
+            className="shadow-sm py-2 px-5 bg-white  dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-white rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]"
             onClick={filterDataInactive}
           >
             Inactive
@@ -93,16 +93,16 @@ function Grid() {
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className="shadow-sm py-2 px-[19px] focus:bg-red-700 focus:text-white rounded-3xl hover:outline-2 hover:outline-red-700 hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] dark:border-[2px] dark:border-[#3f455b]"
+                  className="shadow-sm py-2 px-[19px] focus:bg-red-700 focus:text-white rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
                 >
                   Remove
                 </button>
-                <div>
+                <div className="mt-[2px] hover:border-2 hover:border-white hover:outline-2 hover:outline-[#f45c51]  dark:hover:border-[#1f2535] rounded-full">
                   <div
-                    className={`w-[35px] h-[20px] mt-[2px] flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+                    className={`w-[35px] h-[20px] flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                       item.isActive ? "bg-check" : "bg-gray-400"
                     }`}
                     onClick={() => changeState(item.name)}
