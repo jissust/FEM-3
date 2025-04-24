@@ -100,14 +100,14 @@ function Grid() {
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className="shadow-sm py-2 px-[19px] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-2 border-transparent dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] hover:bg-[#525868]"
+                  className="shadow-sm py-2 px-[19px] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-2 border-transparent dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] dark:hover:bg-[#525868]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
                 >
                   Remove
                 </button>
-                <div className="mt-[2px] hover:border-2 hover:border-white hover:outline-2 hover:outline-[#f45c51]  dark:hover:border-[#1f2535] rounded-full">
+                <div className="mt-[2px] hover:border-2 hover:border-white hover:outline-2 hover:outline-[#f45c51] dark:hover:border-[#1f2535] rounded-full">
                   <div
                     className={`w-[35px] h-[20px] flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                       item.isActive ? "bg-check" : "bg-gray-400"
