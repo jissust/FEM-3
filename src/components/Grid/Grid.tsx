@@ -50,27 +50,27 @@ function Grid() {
 
   return (
     <>
-      <section className="max-w-[1170px] mx-auto flex justify-between py-5 mt-[45px]">
-        <h1 className="text-[#09153e] dark:text-[#f1f5f8] text-2xl text-[32px] font-bold mt-[3px] ">
+      <section className="max-w-[1170px] mx-auto py-5 mt-[14px] md:mt-[45px] grid grid-cols-1 md:grid-cols-2">
+        <h1 className="text-[#09153e] dark:text-[#f1f5f8] text-2xl text-[32px] font-bold mt-[3px] text-center md:text-start">
           Extensions List
         </h1>
-        <div className="flex gap-[14px]">
+        <div className="flex gap-[10px] md:gap-[14px] justify-center md:justify-end mt-[19px] md:mt-0">
           <button
-            className={`shadow-sm py-2 px-5 dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+            className={`shadow-sm py-[7px] px-5 dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
               ${ active === 'all' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={resetFilter}
           >
             All 
           </button>
           <button
-            className={`shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+            className={`shadow-sm py-[7px] px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
               ${ active === 'active' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={filterDataIsActive}
           >
             Active
           </button>
           <button
-            className={`shadow-sm py-2 px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
+            className={`shadow-sm py-[7px] px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
               ${ active === 'inactive' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
             onClick={filterDataInactive}
           >
@@ -78,7 +78,7 @@ function Grid() {
           </button>
         </div>
       </section>
-      <section className="max-w-[1170px] mx-auto mt-[11px]">
+      <section className="max-w-[1170px] mx-auto mt-[20px] md:mt-[11px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15px] ">
           {dataFilter.map((item) => (
             <div
@@ -100,7 +100,7 @@ function Grid() {
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className="shadow-sm py-2 px-[19px] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-2 border-transparent dark:border-[2px] dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-2 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] dark:hover:bg-[#525868]"
+                  className=" py-[6px] md:py-2 px-[16px] md:px-[19px] focus:bg-[#f45c51] focus:text-[#FFFFFF] dark:focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-1 border-[#c9cacc] dark:border-1 dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-1 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] dark:hover:bg-[#525868]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
