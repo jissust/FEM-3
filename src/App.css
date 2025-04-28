@@ -11,6 +11,11 @@ body {
   font-family: "NotoSans";
   color: #545969;
   font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+main {
+  min-height: 100vh;
 }
 .bg-check {
   background-color: #c2251c;
