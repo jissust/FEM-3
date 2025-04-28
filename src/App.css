@@ -2,23 +2,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
-    font-family: "NotoSans";
-    src: url("./assets/fonts/NotoSans-VariableFont_wdth,wght.ttf")
-      format("truetype");
-    font-weight: 100 900;
-  }
-
+  font-family: "NotoSans";
+  src: url("./assets/fonts/NotoSans-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+}
 body {
-    /*background-color: #eef8fa;*/
-    font-family: 'NotoSans';
-    color:#545969;
-    font-size: 14px;
+  font-family: "NotoSans";
+  color: #545969;
+  font-size: 14px;
 }
 .bg-check {
-  background-color: #f45c51;
+  background-color: #c2251c;
 }
-/*
-color de texto para título
-color: #09153e;
-
-*/

@@ -19,19 +19,19 @@ function Grid() {
   const filterDataIsActive = () => {
     const activeItems = data.filter((item) => item.isActive);
     setDataFilter(activeItems);
-    setActive("active")
+    setActive("active");
   };
 
   const filterDataInactive = () => {
     const activeItems = data.filter((item) => !item.isActive);
     setDataFilter(activeItems);
-    setActive("inactive")
+    setActive("inactive");
   };
 
   const resetFilter = () => {
     setData(data);
     setDataFilter(data);
-    setActive("all")
+    setActive("all");
   };
 
   const removeItem = (index: string) => {
@@ -51,27 +51,107 @@ function Grid() {
   return (
     <>
       <section className="max-w-[1170px] mx-auto py-5 mt-[14px] md:mt-[45px] grid grid-cols-1 md:grid-cols-2">
-        <h1 className="text-[#09153e] dark:text-[#f1f5f8] text-2xl text-[32px] font-bold mt-[3px] text-center md:text-start">
+        <h1 className="text-[#09153e] dark:text-[#f1f5f8] text-2xl text-[32px] font-bold mt-[3px] text-center md:text-start transition-colors duration-1000 ease-in-out">
           Extensions List
         </h1>
-        <div className="flex gap-[10px] md:gap-[14px] justify-center md:justify-end mt-[19px] md:mt-0">
+        <div className="flex gap-[10px] justify-center md:justify-end mt-[19px] md:mt-0">
           <button
-            className={`shadow-sm py-[7px] px-5 dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
-              ${ active === 'all' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
+            className={`
+              shadow-sm py-[7px] px-5 
+                  ${
+                    active === "all"
+                      ? "bg-[#c2251c] text-white"
+                      : "bg-white text-[#09153e]"
+                  } 
+    ${
+      active === "all"
+        ? "dark:bg-[#c2251c] dark:text-[#000000]"
+        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
+    }
+              active:bg-[#c2251c] 
+              rounded-3xl 
+              hover:outline-2 
+              hover:outline-[#c2251c] 
+              hover:cursor-pointer 
+              text-[19px] 
+              border-2 
+              border-transparent 
+              hover:border-2 
+              hover:border-[#eef8fa] 
+              dark:border-[2px] 
+              dark:border-[#3f455b] 
+              dark:hover:border-[#1f2535] 
+              transition-colors 
+              duration-1000 
+              ease-in-out
+              ${active !== "all" ? "dark:hover:bg-[#525868]" : ""}`}
             onClick={resetFilter}
           >
-            All 
+            All
           </button>
           <button
-            className={`shadow-sm py-[7px] px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
-              ${ active === 'active' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
+            className={`
+              shadow-sm py-[7px] px-5 
+    ${
+      active === "active"
+        ? "bg-[#c2251c] text-white"
+        : "bg-white text-[#09153e]"
+    } 
+    ${
+      active === "active"
+        ? "dark:bg-[#c2251c] dark:text-[#000000]"
+        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
+    }
+              active:bg-[#c2251c] 
+              rounded-3xl 
+              hover:outline-2 
+              hover:outline-[#c2251c] 
+              hover:cursor-pointer 
+              text-[19px] border-2 
+              border-transparent 
+              hover:border-2 
+              hover:border-[#eef8fa] 
+              dark:border-[2px] 
+              dark:border-[#3f455b] 
+              dark:hover:border-[#1f2535] 
+              transition-colors 
+              duration-1000 
+              ease-in-out
+              ${active !== "active" ? "dark:hover:bg-[#525868]" : ""}`}
             onClick={filterDataIsActive}
           >
             Active
           </button>
           <button
-            className={`shadow-sm py-[7px] px-5 bg-white dark:bg-[#2f354b] focus:bg-[#f45c51] focus:text-[#3f455b] rounded-3xl hover:outline-2 hover:outline-[#f45c51] hover:cursor-pointer text-[#09153e] dark:text-[#f1f5f8] text-[19px] border-2 border-transparent hover:border-2 hover:border-[#eef8fa] dark:border-[2px] dark:border-[#3f455b] dark:hover:border-[#1f2535]
-              ${ active === 'inactive' ? 'bg-[#f45c51] dark:bg-[#f45c51]':'dark:hover:bg-[#525868]'}`}
+            className={`
+              shadow-sm py-[7px] px-5 
+    ${
+      active === "inactive"
+        ? "bg-[#c2251c] text-white"
+        : "bg-white text-[#09153e]"
+    } 
+    ${
+      active === "inactive"
+        ? "dark:bg-[#c2251c] dark:text-[#000000]"
+        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
+    }
+              active:bg-[#c2251c] 
+              rounded-3xl 
+              hover:outline-2 
+              hover:outline-[#c2251c] 
+              hover:cursor-pointer 
+              text-[19px] 
+              border-2 
+              border-transparent 
+              hover:border-2 
+              hover:border-[#eef8fa] 
+              dark:border-[2px] 
+              dark:border-[#3f455b] 
+              dark:hover:border-[#1f2535] 
+              transition-colors 
+              duration-1000 
+              ease-in-out
+              ${active !== "inactive" ? "dark:hover:bg-[#525868]" : ""}`}
             onClick={filterDataInactive}
           >
             Inactive
@@ -83,7 +163,7 @@ function Grid() {
           {dataFilter.map((item) => (
             <div
               key={item.name}
-              className="bg-white dark:bg-[#1f2535] p-[20px] shadow-sm rounded-2xl flex flex-col justify-between h-full min-h-[199px] dark:border-[2px] dark:border-[#3f455b]"
+              className="bg-white dark:bg-[#1f2535] p-[18px] shadow-sm rounded-2xl flex flex-col justify-between h-full min-h-[199px] dark:border-[2px] dark:border-[#3f455b] transition-colors duration-1000 ease-in-out"
             >
               <div className="flex">
                 <div className="w-full max-w-[60px]">
@@ -100,14 +180,14 @@ function Grid() {
               </div>
               <div className="flex w-full justify-between items-center mt-auto">
                 <button
-                  className=" py-[6px] md:py-2 px-[16px] md:px-[19px] focus:bg-[#f45c51] focus:text-[#FFFFFF] dark:focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-1 border-[#c9cacc] dark:border-1 dark:border-[#3f455b] hover:outline-2 hover:outline-[#f45c51] hover:border-1 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] dark:hover:bg-[#525868]"
+                  className=" py-[6px] md:py-2 px-[16px] md:px-[17px] focus:bg-[#c2251c] focus:text-[#FFFFFF] dark:focus:text-[#3f455b] rounded-3xl hover:cursor-pointer text-[#09153e] dark:text-[#f8fcff] text-[14px] border-1 border-[#c9cacc] dark:border-1 dark:border-[#3f455b] hover:outline-2 hover:outline-[#c2251c] hover:border-1 hover:border-[#FFFFFF] dark:hover:border-[#1f2535] dark:hover:bg-[#525868]"
                   onClick={() => {
                     removeItem(item.name);
                   }}
                 >
                   Remove
                 </button>
-                <div className="mt-[2px] hover:border-2 hover:border-white hover:outline-2 hover:outline-[#f45c51] dark:hover:border-[#1f2535] rounded-full">
+                <div className="mt-[2px] hover:border-2 hover:border-white hover:outline-2 hover:outline-[#c2251c] dark:hover:border-[#1f2535] rounded-full">
                   <div
                     className={`w-[35px] h-[20px] flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                       item.isActive ? "bg-check" : "bg-gray-400"
