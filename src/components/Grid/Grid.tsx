@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import dataJson from "../../data/data.json";
 import Item from "../Item/Item";
+import Btn from "../Btn/Btn";
 
 const LOCAL_STORAGE_KEY = "extensionsData";
 
@@ -104,110 +105,21 @@ function Grid() {
           Extensions List
         </h1>
         <div className="flex gap-[10px] justify-center md:justify-end mt-[19px] md:mt-0">
-          <button
-            className={`
-              shadow-sm py-[7px] px-5 
-                  ${
-                    active === "all"
-                      ? "bg-[#c2251c] text-white"
-                      : "bg-white text-[#09153e]"
-                  } 
-    ${
-      active === "all"
-        ? "dark:bg-[#ed5e58] dark:text-[#000000]"
-        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
-    }
-              active:bg-[#c2251c] 
-              rounded-3xl 
-              hover:outline-2 
-              hover:outline-[#c2251c] 
-              hover:cursor-pointer 
-              text-[19px] 
-              border-2 
-              border-transparent 
-              hover:border-2 
-              hover:border-[#eef8fa] 
-              dark:border-[2px] 
-              dark:border-[#3f455b] 
-              dark:hover:border-[#1f2535]
-              dark:hover:outline-[#ed5e58] 
-              transition-colors 
-              duration-1000 
-              ease-in-out
-              ${active !== "all" ? "dark:hover:bg-[#525868]" : ""}`}
-            onClick={resetFilter}
-          >
-            All
-          </button>
-          <button
-            className={`
-              shadow-sm py-[7px] px-5 
-    ${
-      active === "active"
-        ? "bg-[#c2251c] text-white"
-        : "bg-white text-[#09153e]"
-    } 
-    ${
-      active === "active"
-        ? "dark:bg-[#ed5e58] dark:text-[#000000]"
-        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
-    }
-              active:bg-[#c2251c] 
-              rounded-3xl 
-              hover:outline-2 
-              hover:outline-[#c2251c] 
-              hover:cursor-pointer 
-              text-[19px] border-2 
-              border-transparent 
-              hover:border-2 
-              hover:border-[#eef8fa] 
-              dark:border-[2px] 
-              dark:border-[#3f455b] 
-              dark:hover:border-[#1f2535] 
-              dark:hover:outline-[#ed5e58]
-              transition-colors 
-              duration-1000 
-              ease-in-out
-              ${active !== "active" ? "dark:hover:bg-[#525868]" : ""}`}
-            onClick={filterDataIsActive}
-          >
-            Active
-          </button>
-          <button
-            className={`
-              shadow-sm py-[7px] px-5 
-    ${
-      active === "inactive"
-        ? "bg-[#c2251c] text-white"
-        : "bg-white text-[#09153e]"
-    } 
-    ${
-      active === "inactive"
-        ? "dark:bg-[#c2251c] dark:text-[#000000]"
-        : "dark:bg-[#2f354b] dark:text-[#f1f5f8]"
-    }
-              active:bg-[#c2251c] 
-              rounded-3xl 
-              hover:outline-2 
-              hover:outline-[#c2251c] 
-              hover:cursor-pointer 
-              text-[19px] 
-              border-2 
-              border-transparent 
-              hover:border-2 
-              hover:border-[#eef8fa] 
-              dark:border-[2px] 
-              dark:border-[#3f455b] 
-              dark:hover:border-[#1f2535] 
-              dark:hover:outline-[#ed5e58]
-              transition-colors 
-              duration-1000 
-              ease-in-out
-              ${active !== "inactive" ? "dark:hover:bg-[#525868]" : ""}`}
-            onClick={filterDataInactive}
-          >
-            Inactive
-          </button>
+          <Btn 
+          name="all"
+          click={resetFilter}
+          active={active}
+          />
+          <Btn 
+          name="active"
+          click={filterDataIsActive}
+          active={active}
+          />
+          <Btn 
+          name="inactive"
+          click={filterDataInactive}
+          active={active}
+          />
         </div>
       </section>
       <section className="max-w-[1170px] mx-auto mt-[20px] md:mt-[11px]">
