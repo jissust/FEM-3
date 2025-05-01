@@ -1,4 +1,16 @@
-function Item({ item, removeItem, changeState }) {
+type ExtensionItem = {
+  name: string;
+  isActive: boolean;
+  logo: string;
+  description: string;
+};
+interface ItemProps {
+  item: ExtensionItem;
+  removeItem: (name: string) => void;
+  changeState: (name: string) => void;
+}
+
+function Item({ item, removeItem, changeState }: ItemProps) {
   return (
     <div
       key={item.name}

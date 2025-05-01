@@ -4,6 +4,12 @@ import Item from "../Item/Item";
 import Btn from "../Btn/Btn";
 
 const LOCAL_STORAGE_KEY = "extensionsData";
+type ExtensionItem = {
+  name: string,
+  isActive:boolean,
+  logo: string,
+  description: string
+};
 
 function Grid() {
   const [data, setData] = useState(() => {
@@ -19,13 +25,13 @@ function Grid() {
   }, [data]);
 
   const filterDataIsActive = () => {
-    const activeItems = data.filter((item) => item.isActive);
+    const activeItems = data.filter((item: ExtensionItem) => item.isActive);
     setDataFilter(activeItems);
     setActive("active");
   };
 
   const filterDataInactive = () => {
-    const activeItems = data.filter((item) => !item.isActive);
+    const activeItems = data.filter((item: ExtensionItem) => !item.isActive);
     setDataFilter(activeItems);
     setActive("inactive");
   };
@@ -37,13 +43,13 @@ function Grid() {
   };
 
   const removeItem = (index: string) => {
-    const updatedItems = data.filter((item) => item.name != index);
+    const updatedItems = data.filter((item: ExtensionItem) => item.name != index);
     setData(updatedItems);
     setDataFilter(updatedItems);
   };
 
   const changeState = (index: string) => {
-    const updatedItems = data.map((item) =>
+    const updatedItems = data.map((item: ExtensionItem) =>
       item.name === index ? { ...item, isActive: !item.isActive } : item
     );
     setData(updatedItems);
@@ -124,7 +130,7 @@ function Grid() {
       </section>
       <section className="max-w-[1170px] mx-auto mt-[20px] md:mt-[11px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15px] ">
-          {dataFilter.map((item) => (
+          {dataFilter.map((item: ExtensionItem) => (
             <Item 
             item={item}
             removeItem={removeItem}

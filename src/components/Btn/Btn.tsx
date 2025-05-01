@@ -1,7 +1,12 @@
-function Btn ({name, active, click}) {
-    return (
-        <button
-            className={`
+interface ExtensionBtn {
+  name: string;
+  active: string;
+  click: (name: string) => void;
+}
+function Btn({ name, active, click }: ExtensionBtn) {
+  return (
+    <button
+      className={`
               shadow-sm py-[7px] px-5 
                   ${
                     active === name
@@ -32,10 +37,10 @@ function Btn ({name, active, click}) {
               duration-1000 
               ease-in-out
               ${active !== name ? "dark:hover:bg-[#525868]" : ""}`}
-            onClick={click}
-          >
-            {name}
-          </button>
-    )
+      onClick={() => click(name)}
+    >
+      {name}
+    </button>
+  );
 }
 export default Btn;
