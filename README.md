@@ -1,3 +1,7 @@
+# FRONTEND MENTOR CHALLGE: BROWSER EXTENSION MANAGER UI
+
+https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp
+
 # EXTENSIONS LIST
 Web application that allows you to manage a list of extensions using a modern and dynamic interface.
 
