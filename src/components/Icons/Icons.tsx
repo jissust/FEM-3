@@ -27,6 +27,7 @@ export function Logo() {
     </svg>
   );
 }
+
 export function LogoDark() {
   return (
     <svg
