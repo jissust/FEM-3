@@ -1,3 +1,5 @@
+import { useExtensions } from "../../context/DataContext";
+
 type ExtensionItem = {
   name: string;
   isActive: boolean;
@@ -6,11 +8,11 @@ type ExtensionItem = {
 };
 interface ItemProps {
   item: ExtensionItem;
-  removeItem: (name: string) => void;
-  changeState: (name: string) => void;
 }
 
-function Item({ item, removeItem, changeState }: ItemProps) {
+function Item({ item }: ItemProps) {
+  const { removeItem, changeState } = useExtensions();
+
   return (
     <div
       key={item.name}

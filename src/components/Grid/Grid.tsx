@@ -1,66 +1,17 @@
-import { useEffect, useState } from "react";
 import dataJson from "../../data/data.json";
 import Item from "../Item/Item";
 import Btn from "../Btn/Btn";
+import { useExtensions } from "../../context/DataContext";
 
-const LOCAL_STORAGE_KEY = "extensionsData";
 type ExtensionItem = {
-  name: string,
-  isActive:boolean,
-  logo: string,
-  description: string
+  name: string;
+  isActive: boolean;
+  logo: string;
+  description: string;
 };
 
 function Grid() {
-  const [data, setData] = useState(() => {
-    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return savedData ? JSON.parse(savedData) : dataJson;
-  });
-
-  const [dataFilter, setDataFilter] = useState(data);
-  const [active, setActive] = useState("all");
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
-  }, [data]);
-
-  const filterDataIsActive = () => {
-    const activeItems = data.filter((item: ExtensionItem) => item.isActive);
-    setDataFilter(activeItems);
-    setActive("active");
-  };
-
-  const filterDataInactive = () => {
-    const activeItems = data.filter((item: ExtensionItem) => !item.isActive);
-    setDataFilter(activeItems);
-    setActive("inactive");
-  };
-
-  const resetFilter = () => {
-    setData(data);
-    setDataFilter(data);
-    setActive("all");
-  };
-
-  const removeItem = (index: string) => {
-    const updatedItems = data.filter((item: ExtensionItem) => item.name != index);
-    setData(updatedItems);
-    setDataFilter(updatedItems);
-  };
-
-  const changeState = (index: string) => {
-    const updatedItems = data.map((item: ExtensionItem) =>
-      item.name === index ? { ...item, isActive: !item.isActive } : item
-    );
-    setData(updatedItems);
-    setDataFilter(updatedItems);
-  };
-
-  const restoreList = () => {
-    setData(dataJson);
-    setDataFilter(dataJson);
-    setActive("all");
-  };
+  const { data, dataFilter, active, restoreList } = useExtensions();
 
   return (
     <>
@@ -111,31 +62,15 @@ function Grid() {
           Extensions List
         </h1>
         <div className="flex gap-[10px] justify-center md:justify-end mt-[19px] md:mt-0">
-          <Btn 
-          name="all"
-          click={resetFilter}
-          active={active}
-          />
-          <Btn 
-          name="active"
-          click={filterDataIsActive}
-          active={active}
-          />
-          <Btn 
-          name="inactive"
-          click={filterDataInactive}
-          active={active}
-          />
+          <Btn name="all" active={active} />
+          <Btn name="active" active={active} />
+          <Btn name="inactive" active={active} />
         </div>
       </section>
       <section className="max-w-[1170px] mx-auto mt-[20px] md:mt-[11px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15px] ">
           {dataFilter.map((item: ExtensionItem) => (
-            <Item 
-            item={item}
-            removeItem={removeItem}
-            changeState={changeState}
-            />
+            <Item item={item} />
           ))}
         </div>
       </section>

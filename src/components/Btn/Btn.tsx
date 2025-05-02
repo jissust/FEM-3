@@ -1,9 +1,19 @@
+import { useExtensions } from "../../context/DataContext";
+
 interface ExtensionBtn {
   name: string;
   active: string;
-  click: (name: string) => void;
 }
-function Btn({ name, active, click }: ExtensionBtn) {
+function Btn({ name, active }: ExtensionBtn) {
+  const { filterDataInactive, filterDataIsActive, resetFilter } =
+    useExtensions();
+
+  const handleClick = () => {
+    if (name === "all") resetFilter();
+    else if (name === "active") filterDataIsActive();
+    else if (name === "inactive") filterDataInactive();
+  };
+
   return (
     <button
       className={`
@@ -37,7 +47,7 @@ function Btn({ name, active, click }: ExtensionBtn) {
               duration-1000 
               ease-in-out
               ${active !== name ? "dark:hover:bg-[#525868]" : ""}`}
-      onClick={() => click(name)}
+      onClick={handleClick}
     >
       {name}
     </button>
